@@ -23,6 +23,7 @@ int main()
         else
         {
             printf("输入错误!");
+            system("pause");
             continue;
         }
     }
