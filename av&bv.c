@@ -198,7 +198,6 @@ int av2bv(void)
     long long arr;                       //arr加减运算
     char b[10];                          //b对照结果
 
-begin:
     system("cls");
 
     printf("AV");
