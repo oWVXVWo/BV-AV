@@ -326,14 +326,8 @@ begin:
             b[i] = 'w';
         else if (a[i] == 56)
             b[i] = 'c';
-        else if (a[i] == 57)
-            b[i] = 'F';
         else
-        {
-            printf("输入错误，请检查输入！\n");
-            system("pause");
-            goto begin;
-        }
+            b[i] = 'F';
     }
         printf("BV%c%c%c%c%c%c%c%c%c%c\n", b[6], b[2], b[4], b[8], b[5], b[9], b[3], b[7], b[1], b[0]);
         system("pause");
