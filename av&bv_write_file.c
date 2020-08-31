@@ -1,15 +1,15 @@
 #include<stdio.h>
 #include<stdlib.h>                      //system()
 
-long long mi(long long n, int i);
+long long mi(long long n, int i);       //次方运算
 int bv2av(void);
 int av2bv(void);
 
 int main()
 {
     char a;                             //a判断
-    FILE *fp;
-    char read[20];
+    FILE *fp;                           //fp文件控制
+    char read[20];                      //read读取
 
     while(1)
     {
@@ -27,7 +27,7 @@ int main()
             fp=fopen("history.txt","r");
             if (fp == NULL)
             {
-                printf("Error:cannot find this file 'history.txt'.\n");
+                printf("无法找到该文件 'history.txt' \n");
                 system("pause");
                 continue;
             }
@@ -211,7 +211,7 @@ start:
     fp = fopen("history.txt", "a");       //写入history.txt文件
     if (fp == NULL)
     {
-        printf("Error:cannot open file 'history.txt'.\n");
+        printf("打开文件 'history.txt' 错误\n正在退出程序\n");
         system("pause");
         return -1;
     }
@@ -224,7 +224,7 @@ start:
 
 int av2bv(void)
 {
-    int av, av_read, i, a[10];                    //av输入 i控制循环 a除法计算
+    int av, av_read, i, a[10];           //av输入 av_read输入读取 i控制循环 a除法计算
     long long arr;                       //arr加减运算
     char b[10];                          //b对照结果
     FILE *fp;
@@ -365,9 +365,9 @@ int av2bv(void)
     fp = fopen("history.txt", "a");             //写入history.txt文件
     if (fp == NULL)
     {
-            printf("Error:cannot open this file 'histoty'.\n");
-            system("pause");
-            return -1;
+        printf("打开文件 'history.txt' 错误\n正在退出程序\n");
+        system("pause");
+        return -1;
     }
 
     fprintf(fp, "AV%d -> BV%c%c%c%c%c%c%c%c%c%c\n", av_read, b[6], b[2], b[4], b[8], b[5], b[9], b[3], b[7], b[1], b[0]);
@@ -376,7 +376,7 @@ int av2bv(void)
     system("pause");
 }
 
-long long mi(long long n, int i)
+long long mi(long long n, int i)                //次方运算
 {
     long long j;
     int a;
