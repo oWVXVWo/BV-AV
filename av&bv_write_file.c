@@ -8,21 +8,40 @@ int av2bv(void);
 int main()
 {
     char a;                             //a判断
+    FILE *fp;
+    char read[20];
 
     while(1)
     {
         system("cls");
 
-        printf("1.BV转AV\n2.AV转BV\n");
+        printf("1.BV转AV\n2.AV转BV\n3.历史记录\n");
         scanf_s("%d", &a);
 
         if (a == 1)
             bv2av();
         else if (a == 2)
             av2bv();
+        else if (a == 3)
+        {
+            fp=fopen("history.txt","r");
+            if (fp == NULL)
+            {
+                printf("Error:cannot find this file 'history.txt'.\n");
+                system("pause");
+                continue;
+            }
+
+            while (fgets(read, 20, fp))
+                printf(read);
+
+            fclose(fp);
+            system("pause");
+        }
         else
         {
-            printf("输入错误,请重新输入!");
+            printf("输入错误,请重新输入!\n");
+            system("pause");
             continue;
         }
     }
@@ -205,7 +224,7 @@ start:
 
 int av2bv(void)
 {
-    int av, i, a[10];                    //av输入 i控制循环 a除法计算
+    int av, av_read, i, a[10];                    //av输入 i控制循环 a除法计算
     long long arr;                       //arr加减运算
     char b[10];                          //b对照结果
     FILE *fp;
@@ -215,6 +234,7 @@ int av2bv(void)
     printf("AV");
     scanf_s("%d", &av);
 
+    av_read = av;
     av ^= 177451812;
     arr = av + 100618342136696320;
 
@@ -350,7 +370,7 @@ int av2bv(void)
             return -1;
     }
 
-    fprintf(fp, "AV%d -> BV%c%c%c%c%c%c%c%c%c%c\n", av, b[6], b[2], b[4], b[8], b[5], b[9], b[3], b[7], b[1], b[0]);
+    fprintf(fp, "AV%d -> BV%c%c%c%c%c%c%c%c%c%c\n", av_read, b[6], b[2], b[4], b[8], b[5], b[9], b[3], b[7], b[1], b[0]);
 
     fclose(fp);
     system("pause");
