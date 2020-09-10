@@ -15,7 +15,7 @@ int main()
     {
         system("cls");
 
-        printf("1.BV转AV\n2.AV转BV\n3.历史记录\n4.删除记录\n");
+        printf("1.BV转AV\n2.AV转BV\n3.历史记录\n4.删除记录\n0.退出\n");
         scanf_s("%d", &a);
 
         if (a == 1)
@@ -51,6 +51,8 @@ int main()
                 system("pause");
             }
         }
+        else if (a == 0)
+            return 0;
         else
         {
             printf("输入错误,请重新输入!\n");
