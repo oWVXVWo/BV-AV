@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>                      //system()
+#define nodebug                           //debug用
 
 long long mi(long long n, int i);       //次方运算
 int bv2av(void);
@@ -201,6 +202,9 @@ start:
             system("pause");
             goto start;
         }
+    #ifdef debug
+        printf("b[%d]=%d\n", i, b[i]);
+    #endif
     }
 
     a[0] = b[0] * mi(58, 6); 
@@ -214,7 +218,12 @@ start:
     a[8] = b[8] * mi(58, 1);
     a[9] = b[9] * mi(58, 0);
 
-    for (i = 0; i < 10;i++)
+#ifdef debug
+    for (i = 0; i < 10; i++)
+        printf("a[%d]=%lld\n", i, a[i]);
+#endif
+
+    for (i = 0; i < 10; i++)
         arr += a[i];         
 
     arr -= 100618342136696320;
@@ -253,8 +262,17 @@ int av2bv(void)
     av ^= 177451812;
     arr = av + 100618342136696320;
 
+#ifdef debug
+    printf("arr=%lld\n", arr);
+#endif
+
     for (i = 0; i < 10; i++)
         a[i] = arr / mi(58, i) % 58;
+
+#ifdef debug
+    for(i = 0; i < 10; i++)
+        printf("a[%d]=%d\n", i, a[i]);
+#endif
 
     for (i = 0; i < 10; i++)              //对照表
     {
