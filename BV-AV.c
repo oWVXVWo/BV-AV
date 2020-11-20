@@ -1,5 +1,5 @@
 #define debug//debug用
-#define EN//语言EN或CN
+#define CN//语言EN或CN
 #include<stdio.h>
 #include<stdlib.h>                      //system()
 
