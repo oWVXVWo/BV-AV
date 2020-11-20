@@ -1,7 +1,7 @@
+#define debug//debug用
+#define EN//语言EN或CN
 #include<stdio.h>
 #include<stdlib.h>                      //system()
-#define nodebug                           //debug用
-#define GCC//GCC编译或VS编译
 
 long long mi(long long n, int i);       //次方运算
 int bv2av(void);
@@ -16,7 +16,7 @@ int main()
     while(1)
     {
         system("cls");
-        #ifdef GCC
+        #ifdef EN
             printf("1.BV TO AV\n2.AV TO BV\n3.HISTORY\n4.DELETE HISTORY\n0.ESC\n");
         #else
             printf("1.BV转AV\n2.AV转BV\n3.历史记录\n4.删除记录\n0.退出\n");
@@ -32,7 +32,7 @@ int main()
             fp=fopen("history.txt","r");
             if (fp == NULL)
             {
-                #ifdef GCC
+                #ifdef EN
                     printf("Cannot open 'history.txt'\n");
                 #else
                     printf("无法找到该文件 'history.txt' \n");
@@ -51,8 +51,8 @@ int main()
         {
             if (remove("history.txt") == 0)
             {
-                #ifdef GCC
-                    printf("Delete successful\n");
+                #ifdef EN
+                    printf("Delete successfully\n");
                 #else
                     printf("删除成功\n");
                 #endif
@@ -60,7 +60,7 @@ int main()
             }
             else
             {
-                #ifdef GCC
+                #ifdef EN
                     printf("Fail to delete, cannot find 'history.txt'\n");
                 #else
                     printf("删除失败,未找到该文件 'history.txt' \n");
@@ -72,7 +72,7 @@ int main()
             return 0;
         else
         {
-            #ifdef GCC
+            #ifdef EN
                 printf("Error, please input again\n");
             #else
                 printf("输入错误,请重新输入!\n");
@@ -218,7 +218,7 @@ start:
             b[i] = 19;
         else
         {
-            #ifdef GCC
+            #ifdef EN
                 printf("Error, please chick your input\n");
             #else
                 printf("输入错误，请检查输入!\n");
@@ -259,7 +259,7 @@ start:
     fp = fopen("history.txt", "a");       //写入history.txt文件
     if (fp == NULL)
     {
-        #ifdef GCC
+        #ifdef EN
             printf("Error, cannot open 'history.txt'. Exiting program\n");
         #else
             printf("打开文件 'history.txt' 错误\n正在退出程序\n");
@@ -426,7 +426,7 @@ int av2bv(void)
     fp = fopen("history.txt", "a");             //写入history.txt文件
     if (fp == NULL)
     {
-        #ifdef GCC
+        #ifdef EN
             printf("Error, cannot open 'history.txt'. Exiting program\n");
         #else
             printf("打开文件 'history.txt' 错误\n正在退出程序\n");
